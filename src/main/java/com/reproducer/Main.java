@@ -52,7 +52,6 @@ public class Main {
       System.out.println("Test Http Server Metrics...");
       MetricsService metricsService = MetricsService.create(vertx);
       JsonObject metrics = metricsService.getMetricsSnapshot(vertx);
-      System.out.println(metrics);
       boolean contains0000 = metrics.getValue("vertx.http.servers.0.0.0.0:8080.get-requests") != null;
       boolean containsHostname = metrics.getValue("vertx.http.servers." + host + ":8080.get-requests") != null;
       System.out.println("HTTP Server Metrics contains 0.0.0.0: " + contains0000);
